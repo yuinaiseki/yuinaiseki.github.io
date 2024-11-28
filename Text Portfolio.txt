@@ -1,0 +1,45 @@
+* HOME
+home__social
+https://www.linkedin.com/in/yuinaiseki/
+https://github.com/yuinaiseki
+
+home__description
+Hi! I'm Yuina.
+
+
+* ABOUT
+about__description
+I'm a senior at Grinnell College studying Computer Science. I'm from Chiba, Japan.
+
+about__info-name
+Years <br> experience
+Completed <br> project
+Companies <br> worked
+
+
+* SERVICES
+services__modal-service
+I do X Y and Z
+
+
+* PORTFOLIO
+portfolio__description
+Here are my recent projects.
+
+
+* PROJECT
+project__description
+This is my Computer Vision project.
+
+
+* TESTIMONIAL
+testimonial__description
+text goes here
+
+
+* FOOTER
+footer__social
+https://www.facebook.com/yuina.iseki.3/
+
+
+
