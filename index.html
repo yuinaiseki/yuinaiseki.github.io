@@ -9,8 +9,181 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
   <link rel = "stylesheet" href = "./styles.css">
   <script src = "./scripts.js"> </script>
+  <link rel = "icon" type = "img/jpg" href = "put icon link here"> 
 </head>
 <body>
-  Test
+
+  <header>
+    <a href = "#" class="logo-holder">
+      <div class = "logo"> Y </div>
+      <div class = "logo-text"> Yuina's Digital Portfolio </div>
+    </a>
+    <nav>
+      <ul id = "menu">
+        <li>
+          <a href = "#">Home</a> 
+        </li>
+        <li>
+          <a href = "#projects">Projects</a> 
+        </li>
+        <li>
+          <a href = "#blog">Blog</a> 
+        </li>
+        <li>
+          <a href = "mailto:isekiyui@grinnell.edu" class = "button">Contact Me</a> 
+        </li>
+      </ul>
+      <a href="#" class = "mobile-toggle" onClick = "toggleMobileMenu();">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+        </svg>
+        
+      </a>
+
+    </nav>
+  </header>
+
+  <main>
+    <!-- width of different sections -->
+    <section class = "hero container">
+      <div class = "hero-yellow1"> 
+        <div>
+          <h1><small>Hi! I'm</small>
+            Yuina Iseki</h1>
+            <p>I'm a senior at Grinnell College studying Computer Science. 
+              I'm passionate about contributing to Educational Technology!
+              <span></span>
+            </p>
+            <div class="call-to-action">
+              <a href = "./Yuina_CVResume.pdf" class = "button brown">
+                View Resume
+              </a>
+              <a href = "mailto:isekiyui@grinnell.edu" class = "button beige">
+                Contact Me
+              </a>
+            </div>
+            <div class="social-links">
+              <a href = "https://github.com/yuinaiseki" >
+                <img src="./imgs/github.png" alt="Github" width = "48">
+              </a>
+              <a href = "https://www.linkedin.com/in/yuinaiseki/">
+                <img src="./imgs/linkedin.png" alt="LinkedIn" width = "width">
+              </a>
+            </div>
+        </div>
+      </div>
+      <div class = "hero-yellow2">
+        <img src = "./imgs/me.png" alt="Yuina Iseki" width = 70%>
+      </div>
+    </section>
+    <section class = "logos container">
+      <!-- if i want logos-->
+    </section>
+    <section class = "skills container">
+      <!-- if I want skills section-->
+      <!--<h2>
+        <small>
+          About Me
+        </small>
+        <div class = "holder">
+          <div class = "left-column">
+            <h3>Frontend</h3>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <h3>Backend</h3>
+            <ul>
+              <li>Python</li>
+              <li>Java</li>
+            </ul>
+          </div>
+          <div class = right-column>
+            <h3>A bit about me...</h3>
+            <p></p>
+
+          </div>
+        </div>
+      </h2>
+    -->
+  </section>
+  <section id = "projects" class = "bento">
+    <br>
+    <h2>
+      Projects
+    </h2>
+    <div class = "bento-grid">
+      <a href = "https://github.com/yuinaiseki/MAvis" title = "MAvis Project (AI robot simulator)" class = "bento-item">
+        <img src = "./imgs/mavis.png" alt = "MAvis project (AI robot simulator)" width = 100% />
+      </a>
+      <a href = "https://github.com/yuinaiseki/SlimeAlchemist"  title = "Slime Alchemist (Unity game)" class = "bento-item">
+        <img src = "./imgs/slime-alchemist.png" alt = "Slime Alchemist (Unity game)" width = 100% />
+      </a>
+      <a href = "https://github.com/yuinaiseki/Networks" title="Cascading Failure Effect in Networks" class = "bento-item">
+        <img src = "./imgs/networks.png" alt = "Network simulator" width = 100% />
+      </a>
+      <a href = "#"  class = "bento-item">
+        Poisson Image Editing for my Computer Vision class - WIP!
+      </a>
+      <a href = "https://github.com/yuinaiseki/RedRidinghood" title = "Scarlet's Shadow (Unity game)" class = "bento-item">
+        <img src = "./imgs/red-ridinghood.png" alt = "Scarlet's Shadow (Unity game)" width = 100% />
+      </a>
+      <!--
+      <a href = "#"  class = "bento-item">
+        6
+      </a> -->
+    </div>
+  </section>
+  <br>
+  <section id =  "blog" class = "blog container">
+    <h2>
+      Blog
+    </h2>
+    <p> I am the editor of a collaborative blog, Grinnell in Japan, that connects current Grinnell students from Japan to a Japanese audience. I write about my extracurricular activities, study abroad, and more. *English version of my articles coming soon!</p>
+    <br>
+    <div class = "blog-posts">
+      <article>
+        <a href = "https://grinnell-in-japan.com/?p=5615">
+        <figure>
+          <div>
+            <img src="./imgs/around-the-world.png" alt="Around the World with ISO" width = 100% />
+            <figcaption>Around the World with ISO</figcaption>
+          </div>
+        </figure>
+        <h3> Around the World with ISO</h3>
+        <!--<div>ISO</div>-->
+        <p>Welcome event that showcased 20+ multicultural organizations/cohorts at Grinnell College.</p>
+      </a>
+      </article>
+  <article>
+    <a href = "https://grinnell-in-japan.com/?p=5465">
+      <figure>
+        <div>
+          <img src="./imgs/cph.png" alt="Studying abroad in Denmark" width = 100% />
+          <figcaption>Studying abroad in Denmark</figcaption>
+        </div>
+      </figure>
+    </a>
+    <h3> Studying abroad in Denmark</h3>
+    <!--<div>ISO</div>-->
+    <p>I studied abroad at DIS Copenhagen during the Sprng 2024 semester.</p>
+</article>
+<article>
+  <a href = "https://grinnell-in-japan.com/?p=4378">
+    <figure>
+      <div>
+        <img src="./imgs/intro.png" alt="Self Introduction" width = 100% />
+        <figcaption>Self Introduction</figcaption>
+      </div>
+    </figure>
+  </a>
+  <h3> Self Introduction</h3>
+  <!--<div>ISO</div>-->
+  <p> An introduction post about my interests and hobbies!</p>
+</article>
+  </section>
+  </main>
+
 </body>
 </html>
