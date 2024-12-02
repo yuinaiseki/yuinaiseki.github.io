@@ -235,16 +235,31 @@ h2{
         height: 640px;
 
         overflow: hidden;
+        
         img {
             position: absolute;
             top: 0;
             left: 0;
             height: 100%;
             object-fit: cover;
-            transition: ease 0.7s all;
+            transition: ease 0.3s all;
             border-radius: 15px;
         }
 
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--base-800);
+            color: var(--base-400);
+            text-align: center;
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: ease 0.3s all;
+
+        }
 
         @media (max-width: 1024px) {
             grid-template-rows: repeat(8, 1fr);
@@ -264,6 +279,7 @@ h2{
             @media(max-width: 768px){
                 height: 240px;
             }
+
             &:nth-child(1){
                 grid-column: span 2;
                 grid-row: span 2;
@@ -274,7 +290,12 @@ h2{
                 }
                 &:hover{
                     img{
-                        transform: scale(1.1);
+                        transform: scale(1.07);
+                    }
+
+                    figcaption{
+                        opacity:1;
+                        visibility:visible;
                     }
 
                 }
@@ -288,7 +309,7 @@ h2{
                 }
                 &:hover{
                     img{
-                        transform: scale(1.1);
+                        transform: scale(1.07);
                     }
                 }
             }
@@ -301,7 +322,7 @@ h2{
                 }
                 &:hover{
                     img{
-                        transform: scale(1.1);
+                        transform: scale(1.07);
                     }
                 }
             }
@@ -314,7 +335,7 @@ h2{
                 }
                 &:hover{
                     img{
-                        transform: scale(1.1);
+                        transform: scale(1.07);
                     }
                 }
             }
@@ -327,7 +348,7 @@ h2{
                 }
                 &:hover{
                     img{
-                        transform: scale(1.1);
+                        transform: scale(1.07);
                     }
                 }
             }
@@ -410,6 +431,7 @@ h2{
                     opacity:1;
                     visibility:visible;
                 }
+                transform: scale(1.07);
             }
 
          }
