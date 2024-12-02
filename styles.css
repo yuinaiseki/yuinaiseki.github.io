@@ -68,7 +68,7 @@ header{
             font-size: 32px;
 
             /* hoveing over navigation buttons */
-            background-color: var(--base-800);
+            background-color: var(--base-400);
             color: var(--base-400);
             height: 64px;
             width: 64px;
