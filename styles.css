@@ -369,7 +369,7 @@ h2 {
             height: 100%;
             object-fit: cover;
             transition: ease 0.3s all;
-            border-radius: 20px;
+            border-radius: 18px;
         }
 
         figcaption {
@@ -401,7 +401,7 @@ h2 {
         .bento-item {
             padding: 30px;
             background-color: var(--base-500);
-            border-radius: 15px;
+            border-radius: 20px;
             position: relative;
 
             @media(max-width: 768px) {
