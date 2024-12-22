@@ -175,15 +175,19 @@ header {
 .button {
     display: inline-block;
     padding: 10px 30px;
-    background-color: var(--green);
     color: var(--base-800);
     border-radius: 10px;
     transition: ease 0.3s all;
 
-    &:hover {
-        text-decoration: none;
+    &.green{
+        background-color: var(--green);
         color: var(--base-800);
-        background-color: var(--green-100);
+
+        &:hover {
+            text-decoration: none;
+            color: var(--base-800);
+            background-color: var(--green-100);
+        }
     }
 
     &.beige {
@@ -210,7 +214,6 @@ header {
     &.close {
         padding: 2px 20px;
         border-radius: 20px;
-        background-color: var(--yellow-100);
         color: var(--base-400);
 
         &:hover {
