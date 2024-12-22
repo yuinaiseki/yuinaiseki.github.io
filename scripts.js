@@ -11,14 +11,14 @@ function openPopup(itemNumber) {
             <h2>MAvis Hospital Robot Simulator</h2>
             <p> This project is a Multi-Agent Visualisation Tool (MAvis) of search-based autonomous robots in a hospital domain. 
             It implements different search algorithms and heuristics to compare and observe the behavior of the robots in various hospital environments.</p>
-            <img src="./imgs/mavis.png" alt="MAvis">
+            <img src="./gifs/mavis.gif" alt="MAvis">
             <a href="https://github.com/yuinaiseki/MAvis" target="_blank" class = "button green">  GitHub link </a>
         `,
         2: `
             <h2>Poisson Image Editing</h2>
-            <p> This Computer Vision project is a tool that enables seamless and automatic image blending.
-            This technique was originally conceived by Perez et al. from Microsoft Research UK. </p>
-            <img src="./imgs/poisson.png" alt="Poisson Image Editing">
+            <p> This Computer Vision project seamlessly and automatically blends images using Poisson Image Blending, a gradient-domain technique for image manipulation.
+            The core approach involves solving the discrete Poisson partial differential equation with Dirichlet boundary conditions to reconstruct an unknown region of interest (ROI) that matches the target gradient.</p>
+            <img src="./gifs/poisson.gif" alt="Poisson Image Editing">
             <a href="https://github.com/yuinaiseki/PoissonCloning" target="_blank" class = "button green">  GitHub link </a>
             <a href="./Yuina_PoissonImageEditing.pdf" target="_blank" class = "button green">  Paper link </a>
         `,
