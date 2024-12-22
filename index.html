@@ -57,18 +57,18 @@
               <span></span>
             </p>
             <div class="call-to-action">
-              <a href = "./Yuina_CVResume.pdf" class = "button brown">
+              <a href = "./Yuina_CVResume.pdf" class = "button brown" target="_blank">
                 View Resume
               </a>
-              <a href = "mailto:isekiyui@grinnell.edu" class = "button beige">
+              <a href = "mailto:isekiyui@grinnell.edu" target="_blank" class = "button beige">
                 Contact Me
               </a>
             </div>
             <div class="social-links">
-              <a href = "https://github.com/yuinaiseki" >
+              <a href = "https://github.com/yuinaiseki" target="_blank">
                 <img src="./imgs/github.png" alt="Github" width = "48">
               </a>
-              <a href = "https://www.linkedin.com/in/yuinaiseki/">
+              <a href = "https://www.linkedin.com/in/yuinaiseki/" target="_blank">
                 <img src="./imgs/linkedin.png" alt="LinkedIn" width = "width">
               </a>
             </div>
@@ -128,10 +128,27 @@
     </center>
     <br>
     <div class = "bento-grid">
-      <a href = "https://github.com/yuinaiseki/MAvis" title = "MAvis Project (AI robot simulator)" class = "bento-item">
+      <div title = "MAvis Project (AI robot simulator)" class = "bento-item" onClick = openPopup(1)>
         <figcaption>MAvis Project</figcaption>
-        <img src = "./imgs/mavis.png" alt = "MAvis project (AI robot simulator)" width = 100% />
-      </a>
+        <img src = "./imgs/mavis.png" alt = "MAvis project (AI robot simulator)" width = 100%/>
+      </div>
+      <div title = "Poisson Image Editing" class = "bento-item" onClick = openPopup(2)>
+        <figcaption>Poisson Image Editing</figcaption>
+        <img src = "./imgs/poisson.png" alt = "Poisson Image Editing" width = 100%/>
+      </div>
+      <div title = "Cascading Failure Network Simulator" class = "bento-item" onClick = openPopup(3)>
+        <figcaption>MAvis Project</figcaption>
+        <img src = "./imgs/networks.png" alt = "Cascading Failure Network Simulator" width = 100%/>
+      </div>
+      <div title = "Slime Alchemist" class = "bento-item" onClick = openPopup(4)>
+        <figcaption>MAvis Project</figcaption>
+        <img src = "./imgs/slime-alchemist.png" alt = "Slime Alchemist" width = 100%/>
+      </div>
+      <div title = "Scarlet's Shadow" class = "bento-item" onClick = openPopup(5)>
+        <figcaption>MAvis Project</figcaption>
+        <img src = "./imgs/red-ridinghood.png" alt = "Scarlet's Shadow" width = 100%/>
+      </div>
+    <!--
       <a href = "https://github.com/yuinaiseki/PoissonCloning"  title = "Poisson Image Editing" class = "bento-item">
         <img src = "./imgs/poisson.png" alt = "Poisson Image Editing" width = 100%>
       </a>
@@ -144,11 +161,18 @@
       <a href = "https://github.com/yuinaiseki/RedRidinghood" title = "Scarlet's Shadow (Unity game)" class = "bento-item">
         <img src = "./imgs/red-ridinghood.png" alt = "Scarlet's Shadow (Unity game)" width = 100% />
       </a>
-      <!--
       <a href = "#"  class = "bento-item">
         6
       </a> -->
     </div>
+          
+    <div id="popup" class="popup">
+      <div class="popup-content">
+          <span class="close button" onclick="closePopup()">&times;</span>
+          <div id="popup-content"></div>
+      </div>
+    </div>
+
   </section>
   <br>
   <section id =  "blog" class = "blog container">
