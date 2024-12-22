@@ -26,7 +26,7 @@ function openPopup(itemNumber) {
         <h2>Observing Cascading Failure Effect in Network Systems through the Prisoner Dilemma Game (PDG) </h2>
         <p> This projeect examines the effects of the lack of commitment and its impact on cascading failures within real-world social and economic network systems.
         Specifically, we investigate how defection and cooperation behaviors in a networked Prisoner's Dilemma Game (PDG) influence cascading failure behavior, potentially leading to large-scale network collapse.  </p>
-        <img src="./imgs/networks.png" alt="Networks">
+        <img src="./gifs/networks.gif" alt="Networks">
         <a href="https://github.com/yuinaiseki/Networks" target="_blank" class = "button green">  GitHub link </a>
         <a href="./Yuina_PoissonImageEditing.pdf" target="_blank" class = "button green">  Paper link </a>
         `,
@@ -35,7 +35,7 @@ function openPopup(itemNumber) {
         <p> "The Slime Alchemist" is an educational 2D platformer game for children and adults to learn about chemical reactions. 
         Each chemical is a cute slime, and the player tries to meet with other chemical slimes to create chemical compounds and unlock levels. 
         The BGM, UI, and sound effects aim to create a bubbly and fun experience for the player. </p>
-        <img src="./imgs/slime-alchemist.png" alt="Slime Alchemist">
+        <img src="./gifs/slime-alchemist.gif" alt="Slime Alchemist">
         <a href="https://github.com/yuinaiseki/SlimeAlchemist" target="_blank" class = "button green">  GitHub link </a>
         `,
         5: `
@@ -45,7 +45,7 @@ function openPopup(itemNumber) {
         Unknowingly the player is in a dream state, and the narrative of the game focuses on overcoming the inner darkness held within the player. 
         The main enemy and the narrator are both internal parts of the player, which the player will piece together clues to find out as the game progresses.
         There are two main outcomes to the story: either the player will be enveloped by darkness (their loss of hope and loneliness, resulting in death) OR the player will find a way to bring light to the land and wake up from the dream. </p>
-        <img src="./imgs/red-ridinghood.png" alt="Scarlet's Shadow">
+        <img src="./gifs/red-ridinghood.gif" alt="Scarlet's Shadow">
         <a href="https://github.com/yuinaiseki/RedRidinghood" target="_blank" class = "button green">  GitHub link </a>
     `};
 
