@@ -16,14 +16,16 @@
     --base-900: #1d0c02;
     --green: #98B66E;
     --green-100: #cedfc7;
-    --green-800: #1a510c;
-    --green-400: #3f8048;
+    --green-200: #cbd5c0;
+    --green-200: #819171;
+    --green-800: #68965c;
+    --green-400: #517133;
     --green-800: var(--green);
     --yellow: #FBE39D;
     --yellow-100: #ffffcc;
     --yellow-400: var(--yellow);
     --yellow-800: var(--yellow);
-
+    --cream: #ffffe7;
 }
 
 body {
@@ -31,10 +33,12 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
     font-size: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 p {
-    color: var(--base-800)
+    color: var(--base-800);
 }
 
 a {
@@ -71,7 +75,7 @@ header {
             justify-content: center;
             font-size: 32px;
 
-            /* hoveing over navigation buttons */
+            /* hovering over navigation buttons */
             background-color: var(--base-400);
             color: var(--base-400);
             height: 64px;
@@ -524,24 +528,35 @@ h2 {
 
         article {
             background-color: var(--green-100);
-            padding: 30px;
-            border-radius: 30px;
+            padding: 20px;
+            border-radius: 20px;
             flex: 1;
 
             h3 {
-                margin-top: 20px;
-                margin-bottom: 20px;
+                margin-top: 15px;
+                margin-bottom: 3px;
                 color: var(--green-400);
+            }
+
+            tags{
+                font-weight: 600;
+                margin-bottom: 5px;
+                color: var(--cream);
+                background-color: var(--green-200);
+                margin-left: 5px;
+                border-radius: 5px;
+                padding: 1.5px;
             }
 
             div {
                 font-weight: 600;
                 margin-bottom: 5px;
+                margin-right: 10px;
                 color: var(--base);
             }
 
             p {
-                margin-bottom: 10px;
+                margin-bottom: 3px;
             }
 
             figure {
