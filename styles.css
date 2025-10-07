@@ -18,10 +18,10 @@
     --green-100: #cedfc7;
     --green-200: #cbd5c0;
     --green-200: #819171;
-    --green-800: #68965c;
-    --green-400: #517133;
+    --green-800: #b1cfaa;
+    --green-400: #647c4e;
     --green-800: var(--green);
-    --yellow: #FBE39D;
+    --yellow: #f3ebd5;
     --yellow-100: #ffffcc;
     --yellow-400: var(--yellow);
     --yellow-800: var(--yellow);
@@ -183,8 +183,8 @@ header {
     border-radius: 10px;
     transition: ease 0.3s all;
 
-    &.green{
-        background-color: var(--green);
+    &.yellow{
+        background-color: var(--yellow);
         color: var(--base-800);
 
         &:hover {
