@@ -22,7 +22,7 @@
     --green-400: #647c4e;
     --green-800: var(--green);
     --yellow: #f3ebd5;
-    --yellow-100: #ffffcc;
+    --yellow-100: rgb(239, 239, 220);
     --yellow-400: var(--yellow);
     --yellow-800: var(--yellow);
     --cream: #ffffe7;
@@ -189,8 +189,8 @@ header {
 
         &:hover {
             text-decoration: none;
-            color: var(--base-800);
-            background-color: var(--green-100);
+            color: var(--base-900);
+            background-color: var(--base-400);
         }
     }
 
@@ -199,8 +199,8 @@ header {
         color: var(--base-800);
 
         &:hover {
-            background-color: var(--base-100);
-            color: var(--base-500);
+            background-color: var(--base-500);
+            color: var(--base-900);
         }
 
     }
@@ -210,7 +210,7 @@ header {
         color: var(--base-400);
 
         &:hover {
-            background-color: var(--base-100);
+            background-color: var(--base-500);
             color: var(--base-900);
         }
     }
@@ -527,7 +527,7 @@ h2 {
         }
 
         article {
-            background-color: var(--yellow);
+            background-color: var(--yellow-100);
             padding: 20px;
             border-radius: 20px;
             flex: 1;
