@@ -527,7 +527,7 @@ h2 {
         }
 
         article {
-            background-color: var(--green-100);
+            background-color: var(--yellow);
             padding: 20px;
             border-radius: 20px;
             flex: 1;
@@ -535,14 +535,14 @@ h2 {
             h3 {
                 margin-top: 15px;
                 margin-bottom: 3px;
-                color: var(--green-400);
+                color: var(--base-800);
             }
 
             tags{
                 font-weight: 600;
                 margin-bottom: 5px;
-                color: var(--cream);
-                background-color: var(--green-200);
+                color: var(--yellow);
+                background-color: var(--base-100);
                 margin-left: 5px;
                 border-radius: 5px;
                 padding: 1.5px;
