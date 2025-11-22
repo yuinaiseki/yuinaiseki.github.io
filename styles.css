@@ -599,6 +599,8 @@ h2 {
 /*hero*/
 .hero {
     display: flex;
+    gap: 40px;
+    max-width: 1200px;
 
     @media (max-width: 1024px) {
         flex-direction: column;

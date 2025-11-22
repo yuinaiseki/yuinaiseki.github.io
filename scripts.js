@@ -1,5 +1,7 @@
-import { projects } from './data/projects.js';
+import { projects, categories } from './data/projects.js';
 import { blogPosts } from './data/blog-posts.js';
+
+let activeCategory = "All";
 
 async function loadComponent(componentPath, containerId) {
     const container = document.getElementById(containerId);
@@ -29,18 +31,47 @@ async function loadComponent(componentPath, containerId) {
     }
 }
 
+function renderProjectTabs() {
+    const tabsContainer = document.getElementById('project-tabs');
+    if (!tabsContainer) return;
+    
+    tabsContainer.innerHTML = categories.map(category => `
+        <button class="tab-button ${category === activeCategory ? 'active' : ''}" 
+                data-category="${category}">
+            ${category}
+        </button>
+    `).join('');
+    
+    document.querySelectorAll('.tab-button').forEach(button => {
+        button.addEventListener('click', () => {
+            activeCategory = button.getAttribute('data-category');
+            renderProjectTabs();
+            renderProjects();
+        });
+    });
+}
+
 function renderProjects() {
     const projectsGrid = document.getElementById('projects-grid');
     if (!projectsGrid) return;
     
-    projectsGrid.innerHTML = projects.map(project => `
+    const filteredProjects = activeCategory === "All" 
+        ? projects 
+        : projects.filter(p => p.category === activeCategory);
+    
+    if (filteredProjects.length === 0) {
+        projectsGrid.innerHTML = '<p style="text-align: center; color: var(--base-800); padding: 40px;">No projects in this category yet.</p>';
+        return;
+    }
+    
+    projectsGrid.innerHTML = filteredProjects.map(project => `
         <div class="project-card" data-project-id="${project.id}" tabindex="0">
             <div class="project-image">
                 <img src="${project.image}" alt="${project.title}" />
             </div>
             <div class="project-info">
                 <h3>${project.title}</h3>
-                <p class="project-tag">${project.type}</p>
+                <p class="project-tag">${project.type} • ${project.role}</p>
                 <p class="project-description">${project.shortDescription}</p>
                 <div class="project-tags">
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
@@ -90,6 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             loadComponent('./components/blogs.html', 'blog-container')
         ]);
         
+        renderProjectTabs();
         renderProjects();
         renderBlogPosts();
         
@@ -103,7 +135,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function initializeEventListeners() {
-    
     const mobileToggle = document.querySelector('.mobile-toggle');
     if (mobileToggle) {
         mobileToggle.addEventListener('click', (e) => {
@@ -161,6 +192,7 @@ function initializeEventListeners() {
                         block: 'start'
                     });
                     
+                
                     const menu = document.getElementById('menu');
                     if (menu && menu.classList.contains('active')) {
                         menu.classList.remove('active');
@@ -181,15 +213,74 @@ function toggleMobileMenu() {
 function buildProjectContent(project) {
     return `
         <h2>${project.fullTitle}</h2>
-        <p>${project.fullDescription}</p>
+        
+        <div class="popup-meta">
+            <div class="popup-meta-item">
+                <span class="popup-meta-label">Role</span>
+                <span class="popup-meta-value">${project.role}</span>
+            </div>
+            <div class="popup-meta-item">
+                <span class="popup-meta-label">Timeline</span>
+                <span class="popup-meta-value">${project.timeline}</span>
+            </div>
+            <div class="popup-meta-item">
+                <span class="popup-meta-label">Team</span>
+                <span class="popup-meta-value">${project.team.join(', ')}</span>
+            </div>
+            ${project.course ? `
+                <div class="popup-meta-item">
+                    <span class="popup-meta-label">Course</span>
+                    <span class="popup-meta-value">${project.course}</span>
+                </div>
+            ` : ''}
+        </div>
+
+        <p><strong>Overview:</strong> ${project.fullDescription}</p>
+
         <img src="${project.gif}" alt="${project.title}" loading="lazy">
-        <div style="margin-top: 20px;">
+
+        <div class="popup-section">
+            <h3>Technologies Used</h3>
+            <div class="tech-stack">
+                ${project.technologies.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
+            </div>
+        </div>
+
+        ${project.keyFeatures ? `
+            <div class="popup-section">
+                <h3>Key Features</h3>
+                <ul>
+                    ${project.keyFeatures.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+            </div>
+        ` : ''}
+
+        ${project.challenges ? `
+            <div class="popup-section">
+                <h3>Challenges & Solutions</h3>
+                <p>${project.challenges}</p>
+            </div>
+        ` : ''}
+
+        ${project.outcomes ? `
+            <div class="popup-section">
+                <h3>Outcomes & Impact</h3>
+                <p>${project.outcomes}</p>
+            </div>
+        ` : ''}
+
+        <div class="popup-buttons">
             <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="button green">
-                GitHub Repository
+                View on GitHub
             </a>
             ${project.paper ? `
                 <a href="${project.paper}" target="_blank" rel="noopener noreferrer" class="button green">
-                    View Paper
+                    Read Paper
+                </a>
+            ` : ''}
+            ${project.demo ? `
+                <a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="button green">
+                    Live Demo
                 </a>
             ` : ''}
         </div>
