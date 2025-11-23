@@ -216,20 +216,20 @@ function buildProjectContent(project) {
         
         <div class="popup-meta">
             <div class="popup-meta-item">
-                <span class="popup-meta-label">Role</span>
+                <span class="popup-meta-label">Role: </span>
                 <span class="popup-meta-value">${project.role}</span>
             </div>
             <div class="popup-meta-item">
-                <span class="popup-meta-label">Timeline</span>
+                <span class="popup-meta-label">Timeline: </span>
                 <span class="popup-meta-value">${project.timeline}</span>
             </div>
             <div class="popup-meta-item">
-                <span class="popup-meta-label">Team</span>
+                <span class="popup-meta-label">Team: </span>
                 <span class="popup-meta-value">${project.team.join(', ')}</span>
             </div>
             ${project.course ? `
                 <div class="popup-meta-item">
-                    <span class="popup-meta-label">Course</span>
+                    <span class="popup-meta-label">Course: </span>
                     <span class="popup-meta-value">${project.course}</span>
                 </div>
             ` : ''}
@@ -254,32 +254,20 @@ function buildProjectContent(project) {
                 </ul>
             </div>
         ` : ''}
+        </br>
 
-        ${project.challenges ? `
-            <div class="popup-section">
-                <h3>Challenges & Solutions</h3>
-                <p>${project.challenges}</p>
-            </div>
-        ` : ''}
-
-        ${project.outcomes ? `
-            <div class="popup-section">
-                <h3>Outcomes & Impact</h3>
-                <p>${project.outcomes}</p>
-            </div>
-        ` : ''}
 
         <div class="popup-buttons">
-            <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="button green">
+            <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="button beige">
                 View on GitHub
             </a>
             ${project.paper ? `
-                <a href="${project.paper}" target="_blank" rel="noopener noreferrer" class="button green">
+                <a href="${project.paper}" target="_blank" rel="noopener noreferrer" class="button beige">
                     Read Paper
                 </a>
             ` : ''}
             ${project.demo ? `
-                <a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="button green">
+                <a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="button beige">
                     Live Demo
                 </a>
             ` : ''}

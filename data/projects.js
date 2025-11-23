@@ -29,7 +29,7 @@ export const projects = [
         id: 2,
         title: "Poisson Image Editing",
         fullTitle: "Poisson Image Editing",
-        category: "Computer Vision",
+        category: "Computer Vision", 
         type: "course project",
         shortDescription: "Seamless image blending using gradient-domain techniques and Poisson equations.",
         fullDescription: "This Computer Vision project seamlessly and automatically blends images using Poisson Image Blending, a gradient-domain technique for image manipulation. The core approach involves solving the discrete Poisson partial differential equation with Dirichlet boundary conditions to reconstruct an unknown region of interest (ROI) that matches the target gradient.",
