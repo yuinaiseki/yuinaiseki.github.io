@@ -14,7 +14,7 @@ export const blogPosts = [
         title: "Grinnellian Day in the life",
         date: "2025.5.15",
         image: "./imgs/pella.jpg",
-        description: "A little self-conducted research on Japanese foods that Japanese students cannot live without in Iowa.",
+        description: "What's it like being a senior international student at Grinnell?!",
         url: "https://grinnell-in-japan.com/?p=6190",
         tags: ["#everyday", "#grinnell-in-japan"]
     },
@@ -59,7 +59,7 @@ export const blogPosts = [
         title: "Around the World with ISO",
         date: "2024.10.25",
         image: "./imgs/around-the-world.png",
-        description: "Welcome event that showcased 20+ multicultural organizations/cohorts at Grinnell College.",
+        description: "ISO's welcome event that showcased 20+ multicultural organizations/cohorts at Grinnell College!",
         url: "https://grinnell-in-japan.com/?p=5615",
         tags: ["#iso", "#international", "#mlcs"]
     },

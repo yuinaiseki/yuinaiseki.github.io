@@ -1,8 +1,11 @@
+// Import data
 import { projects, categories } from './data/projects.js';
 import { blogPosts } from './data/blog-posts.js';
 
+// Current active category
 let activeCategory = "All";
 
+// Component loader with error handling and loading states
 async function loadComponent(componentPath, containerId) {
     const container = document.getElementById(containerId);
     
@@ -31,6 +34,7 @@ async function loadComponent(componentPath, containerId) {
     }
 }
 
+// Render project tabs
 function renderProjectTabs() {
     const tabsContainer = document.getElementById('project-tabs');
     if (!tabsContainer) return;
@@ -42,6 +46,7 @@ function renderProjectTabs() {
         </button>
     `).join('');
     
+    // Add click handlers to tabs
     document.querySelectorAll('.tab-button').forEach(button => {
         button.addEventListener('click', () => {
             activeCategory = button.getAttribute('data-category');
@@ -51,21 +56,26 @@ function renderProjectTabs() {
     });
 }
 
+// Render projects from data
 function renderProjects() {
     const projectsGrid = document.getElementById('projects-grid');
     if (!projectsGrid) return;
     
+    // Filter projects by active category
     const filteredProjects = activeCategory === "All" 
         ? projects 
-        : projects.filter(p => p.category === activeCategory);
+        : projects.filter(p => p.categories.includes(activeCategory));
     
     if (filteredProjects.length === 0) {
         projectsGrid.innerHTML = '<p style="text-align: center; color: var(--base-800); padding: 40px;">No projects in this category yet.</p>';
         return;
     }
     
-    projectsGrid.innerHTML = filteredProjects.map(project => `
-        <div class="project-card" data-project-id="${project.id}" tabindex="0">
+    projectsGrid.innerHTML = filteredProjects.map((project, index) => {
+        // Find the actual index in the full projects array
+        const actualIndex = projects.indexOf(project);
+        return `
+        <div class="project-card" data-project-index="${actualIndex}" tabindex="0">
             <div class="project-image">
                 <img src="${project.image}" alt="${project.title}" />
             </div>
@@ -78,13 +88,19 @@ function renderProjects() {
                 </div>
             </div>
         </div>
-    `).join('');
+    `;
+    }).join('');
+    
+    // Re-attach event listeners to new project cards
+    attachProjectCardListeners();
 }
 
+// Render blog posts from data
 function renderBlogPosts() {
     const blogContainer = document.getElementById('blog-posts-container');
     if (!blogContainer) return;
     
+    // Group posts into rows of 3
     const postsPerRow = 3;
     const rows = [];
     for (let i = 0; i < blogPosts.length; i += postsPerRow) {
@@ -112,8 +128,10 @@ function renderBlogPosts() {
     `).join('');
 }
 
+// Load all components when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
     try {
+        // Load components in parallel
         await Promise.all([
             loadComponent('./components/header.html', 'header-container'),
             loadComponent('./components/hero.html', 'hero-container'),
@@ -121,12 +139,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             loadComponent('./components/blogs.html', 'blog-container')
         ]);
         
+        // Render dynamic content from data
         renderProjectTabs();
         renderProjects();
         renderBlogPosts();
         
+        // Initialize event listeners after everything is loaded
         initializeEventListeners();
         
+        // Initialize back to top button
         initializeBackToTop();
         
     } catch (error) {
@@ -134,7 +155,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+// Initialize all event listeners
 function initializeEventListeners() {
+    // Mobile menu toggle
     const mobileToggle = document.querySelector('.mobile-toggle');
     if (mobileToggle) {
         mobileToggle.addEventListener('click', (e) => {
@@ -143,27 +166,16 @@ function initializeEventListeners() {
         });
     }
     
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach((card) => {
-        card.addEventListener('click', () => {
-            const projectId = parseInt(card.getAttribute('data-project-id'));
-            openPopup(projectId);
-        });
-        
-        card.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                const projectId = parseInt(card.getAttribute('data-project-id'));
-                openPopup(projectId);
-            }
-        });
-    });
+    // Attach project card listeners
+    attachProjectCardListeners();
     
+    // Close popup handler
     const closeBtn = document.querySelector('.close');
     if (closeBtn) {
         closeBtn.addEventListener('click', closePopup);
     }
     
+    // Close popup when clicking outside
     const popup = document.getElementById('popup');
     if (popup) {
         popup.addEventListener('click', (e) => {
@@ -173,12 +185,14 @@ function initializeEventListeners() {
         });
     }
     
+    // Close popup with Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closePopup();
         }
     });
     
+    // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -192,7 +206,7 @@ function initializeEventListeners() {
                         block: 'start'
                     });
                     
-                
+                    // Close mobile menu if open
                     const menu = document.getElementById('menu');
                     if (menu && menu.classList.contains('active')) {
                         menu.classList.remove('active');
@@ -203,6 +217,27 @@ function initializeEventListeners() {
     });
 }
 
+// Attach event listeners to project cards (separate function for re-use)
+function attachProjectCardListeners() {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card) => {
+        card.addEventListener('click', () => {
+            const projectIndex = parseInt(card.getAttribute('data-project-index'));
+            openPopup(projectIndex);
+        });
+        
+        // Add keyboard accessibility
+        card.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const projectIndex = parseInt(card.getAttribute('data-project-index'));
+                openPopup(projectIndex);
+            }
+        });
+    });
+}
+
+// Mobile menu toggle
 function toggleMobileMenu() {
     const menu = document.getElementById("menu");
     if (menu) {
@@ -210,41 +245,35 @@ function toggleMobileMenu() {
     }
 }
 
+// Build enhanced project popup content from data
 function buildProjectContent(project) {
     return `
         <h2>${project.fullTitle}</h2>
         
         <div class="popup-meta">
             <div class="popup-meta-item">
-                <span class="popup-meta-label">Role: </span>
+                <span class="popup-meta-label">Role</span>
                 <span class="popup-meta-value">${project.role}</span>
             </div>
             <div class="popup-meta-item">
-                <span class="popup-meta-label">Timeline: </span>
+                <span class="popup-meta-label">Timeline</span>
                 <span class="popup-meta-value">${project.timeline}</span>
             </div>
             <div class="popup-meta-item">
-                <span class="popup-meta-label">Team: </span>
+                <span class="popup-meta-label">Team</span>
                 <span class="popup-meta-value">${project.team.join(', ')}</span>
             </div>
             ${project.course ? `
                 <div class="popup-meta-item">
-                    <span class="popup-meta-label">Course: </span>
+                    <span class="popup-meta-label">Course</span>
                     <span class="popup-meta-value">${project.course}</span>
                 </div>
             ` : ''}
         </div>
 
-        <p><strong>Overview:</strong> ${project.fullDescription}</p>
+        <div class="popup-overview">${project.fullDescription}</div>
 
         <img src="${project.gif}" alt="${project.title}" loading="lazy">
-
-        <div class="popup-section">
-            <h3>Technologies Used</h3>
-            <div class="tech-stack">
-                ${project.technologies.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
-            </div>
-        </div>
 
         ${project.keyFeatures ? `
             <div class="popup-section">
@@ -254,31 +283,36 @@ function buildProjectContent(project) {
                 </ul>
             </div>
         ` : ''}
-        </br>
-
-
-        <div class="popup-buttons">
-            <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="button beige">
-                View on GitHub
-            </a>
-            ${project.paper ? `
-                <a href="${project.paper}" target="_blank" rel="noopener noreferrer" class="button beige">
-                    Read Paper
+        <div class="center">
+            <div class="popup-buttons">
+                <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="button beige">
+                    View on GitHub
                 </a>
-            ` : ''}
-            ${project.demo ? `
-                <a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="button beige">
-                    Live Demo
-                </a>
-            ` : ''}
+                ${project.website ? `
+                    <a href="${project.website}" target="_blank" rel="noopener noreferrer" class="button beige">
+                        Visit Website
+                    </a>
+                ` : ''}
+                ${project.paper ? `
+                    <a href="${project.paper}" target="_blank" rel="noopener noreferrer" class="button beige">
+                        Read Paper
+                    </a>
+                ` : ''}
+                ${project.demo ? `
+                    <a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="button beige">
+                        Live Demo
+                    </a>
+                ` : ''}
+            </div>
         </div>
     `;
 }
 
-function openPopup(projectId) {
+// Open project popup
+function openPopup(projectIndex) {
     const popup = document.getElementById('popup');
     const popupContent = document.getElementById('popup-content');
-    const project = projects.find(p => p.id === projectId);
+    const project = projects[projectIndex];
     
     if (!project) {
         popupContent.innerHTML = "<p>Project not found.</p>";
@@ -288,17 +322,21 @@ function openPopup(projectId) {
     popupContent.innerHTML = buildProjectContent(project);
     popup.style.display = 'flex';
     
+    // Prevent body scroll when popup is open
     document.body.style.overflow = 'hidden';
 }
 
+// Close popup
 function closePopup() {
     const popup = document.getElementById('popup');
     if (popup) {
         popup.style.display = 'none';
+        // Restore body scroll
         document.body.style.overflow = 'auto';
     }
 }
 
+// Lazy load images for better performance
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -313,6 +351,7 @@ if ('IntersectionObserver' in window) {
         });
     });
     
+    // Observe images after components load
     setTimeout(() => {
         document.querySelectorAll('img[data-src]').forEach(img => {
             imageObserver.observe(img);
@@ -320,11 +359,13 @@ if ('IntersectionObserver' in window) {
     }, 500);
 }
 
+// Back to Top Button functionality
 function initializeBackToTop() {
     const backToTopButton = document.getElementById('back-to-top');
     
     if (!backToTopButton) return;
     
+    // Show/hide button based on scroll position
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
             backToTopButton.classList.add('show');
@@ -333,6 +374,7 @@ function initializeBackToTop() {
         }
     });
     
+    // Scroll to top when clicked
     backToTopButton.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -341,6 +383,7 @@ function initializeBackToTop() {
     });
 }
 
+// Make functions globally accessible
 window.toggleMobileMenu = toggleMobileMenu;
 window.openPopup = openPopup;
 window.closePopup = closePopup;

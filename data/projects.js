@@ -1,9 +1,103 @@
+// Project data - single source of truth
 export const projects = [
+    /*
     {
-        id: 1,
+        title: "",
+        fullTitle: "",
+        categories: ["AI/ML"], 
+        type: "course project",
+        shortDescription: "",
+        fullDescription: "",
+        role: "Lead Developer",
+        team: ["Yuina Iseki"], 
+        timeline: "",
+        course: "",
+        keyFeatures: [
+            "Multiple pathfinding algorithms (A*, Dijkstra, BFS, DFS)",
+            "Real-time visualization of robot movements",
+            "Customizable hospital environments",
+            "Performance comparison metrics"
+        ],
+        image: "./imgs/mavis.png",
+        gif: "./gifs/mavis.gif",
+        github: "https://github.com/yuinaiseki/",
+        demo: null,
+        paper: null,
+        tags: ["AI"]
+    },
+    */
+   {
+        title: "GenAI Origami Models (WIP)",
+        fullTitle: "Origami Model Generation with Neural Style Transfer (NST) and Cycle-Consistent Generative Adversarial Networks (CycleGAN)",
+        categories: ["AI/ML", "Computer Vision"], 
+        type: "course project",
+        shortDescription: "Transforming real-world animal images into origami model images with Neural Style Transfer and CycleGAN.",
+        fullDescription: "This project aims to transform real-world animal images into origami model images. Our goal is to preserve both recognizable forms and foldability by combining aesthetic style transfer and geometric constraints. Mathematical principles in origami are driving innovations in deployable systems across robotics, architecture, biomedical devices, and aerospace. By developing an AI tool that interprets natural forms through an origami lens, we hope to assist engineers in designing foldable, compact, and rapidly deployable structures for various real-world applications.",
+        role: "Lead Developer",
+        team: ["Yuina Iseki", "Antra Nakhasi", "Changju Yuan"], 
+        timeline: "Autumn 2025",
+        course: "CS230: Deep Learning",
+        keyFeatures: [
+            "Neural Style Transfer for artistic transformation",
+            "CycleGAN architecture for geometry-aware style conversion",
+        ],
+        image: "./imgs/origami2.jpg",
+        gif: "./imgs/origami.jpg",
+        github: "https://github.com/yuinaiseki/Origami-Model-using-CycleGAN",
+        demo: null,
+        paper: null,
+        tags: ["GENAI", "COMPUTER VISION", "DEEP LEARNING"]
+    },
+    {
+        title: "tether (WIP)",
+        fullTitle: "tether: A Safe Space for Difficult Conversations",
+        categories: ["HCI/UX"], 
+        type: "course project",
+        shortDescription: "Preparing, initiating, and navigating difficult conversations in a safe spaces.",
+        fullDescription: "Through tether, we aim to find a way for people to prepare for and navigate difficult conversations about conflicts, opening up about sensitive topics, or reaching out to a friend who is struggling. We hope to offer a safe, structured space to reduce anxiety and miscommunication by initiating and guiding through such conversations: beginning with helping users set intentions & align expectations, then using structured prompts to navigate communication, and finally, reflecting afterward. The goal is to strengthen overall communication, trust, and emotional well-being between relationships.",
+        role: "Lead Developer",
+        team: ["Yuina Iseki", "Zimin Qian", "Ahmad Zafar", "Fayez Navid"], 
+        timeline: "Autumn 2025",
+        course: "CS147: Human-Computer Interaction",
+        keyFeatures: [
+            "Pre-conversation intention setting & expectation alignment",
+            "AI-guided conversation starters with structured prompts",
+            "Post-conversation reflection & journaling prompts",
+        ],
+        image: "./imgs/tether2.jpg",
+        gif: "./imgs/tether.jpg",
+        github: "https://github.com/yuinaiseki/tether",
+        website: "https://web.stanford.edu/class/cs147/projects/DesignforMentalWellbeing/tether/",
+        demo: null,
+        paper: null,
+        tags: ["HCI", "MOBILE APP", "MENTAL WELL-BEING"]
+    },
+    {
+        title: "Shiori",
+        fullTitle: "Shiori: Discover Books through Color and Genre",
+        categories: ["HCI/UX"], 
+        type: "course project",
+        shortDescription: "Book discovery made easy and visual through art, color, and genre.",
+        fullDescription: "Shiori is a React Native app that makes book discovery easy and visual! It tags each book with aesthetic color profiles and lets users filter, explore, and save book covers based on aesthetic, color, and genre :) This app retrieves book metadata using the Apple iTunes Search API.",
+        role: "Solo Developer",
+        team: ["Yuina Iseki"], 
+        timeline: "Autumn 2025 ",
+        course: "CS147L: Cross-Platform Mobile Development",
+        keyFeatures: [
+            "Aesthetic color-based book filtering and discovery",
+            "Genre and theme-based recommendations",
+        ],
+        image: "./imgs/shiori.png",
+        gif: "./imgs/shiori.png",
+        github: "https://github.com/yuinaiseki/shiori",
+        demo: null,
+        paper: null,
+        tags: ["HCI", "MOBILE APP", "BOOKS"]
+    },
+    {
         title: "MAvis Project",
         fullTitle: "MAvis Hospital Robot Simulator",
-        category: "AI/ML", 
+        categories: ["AI/ML"], 
         type: "course project",
         shortDescription: "Multi-Agent Visualisation Tool for autonomous robots in a hospital domain.",
         fullDescription: "This project is a Multi-Agent Visualisation Tool (MAvis) of search-based autonomous robots in a hospital domain. It implements different search algorithms and heuristics to compare and observe the behavior of the robots in various hospital environments.",
@@ -11,11 +105,9 @@ export const projects = [
         team: ["Yuina Iseki", "Christie Nguyen", "Airi Matsushita", "Erynn Gutierrez"], 
         timeline: "Spring 2024",
         course: "DIS: Artificial Intelligence A",
-        technologies: ["Python", "A* Algorithm", "Dijkstra", "BFS/DFS"],
         keyFeatures: [
-            "Multiple pathfinding algorithms (A*, Dijkstra, BFS, DFS)",
+            "Pathfinding algorithms (A*, Dijkstra, BFS, DFS)",
             "Real-time visualization of robot movements",
-            "Customizable hospital environments",
             "Performance comparison metrics"
         ],
         image: "./imgs/mavis.png",
@@ -26,10 +118,9 @@ export const projects = [
         tags: ["AI", "PATHFINDING"]
     },
     {
-        id: 2,
         title: "Poisson Image Editing",
         fullTitle: "Poisson Image Editing",
-        category: "Computer Vision", 
+        categories: ["Computer Vision", "AI/ML"], 
         type: "course project",
         shortDescription: "Seamless image blending using gradient-domain techniques and Poisson equations.",
         fullDescription: "This Computer Vision project seamlessly and automatically blends images using Poisson Image Blending, a gradient-domain technique for image manipulation. The core approach involves solving the discrete Poisson partial differential equation with Dirichlet boundary conditions to reconstruct an unknown region of interest (ROI) that matches the target gradient.",
@@ -37,12 +128,10 @@ export const projects = [
         team: ["Yuina Iseki", "Shuta Shibue"],
         timeline: "Spring 2024",
         course: "CSC 262: Computer Vision",
-        technologies: ["Python", "NumPy", "OpenCV", "Scipy"],
         keyFeatures: [
             "Gradient-domain image blending",
             "Poisson equation solver using sparse matrices",
-            "Support for seamless cloning, mixing, and texture flattening",
-            "Real-time preview of blending results"
+            "Support for seamless cloning and texture mixing",
         ],
         image: "./imgs/poisson.png",
         gif: "./gifs/poisson.gif",
@@ -52,10 +141,9 @@ export const projects = [
         tags: ["COMPUTER VISION", "IMAGE PROCESSING"]
     },
     {
-        id: 3,
         title: "Network Cascading Failure",
         fullTitle: "Observing Cascading Failure Effect in Network Systems",
-        category: "Networks",
+        categories: ["Networks"],
         type: "course project",
         shortDescription: "Examining cascading failures in network systems through Prisoner's Dilemma Game dynamics.",
         fullDescription: "This project examines the effects of the lack of commitment and its impact on cascading failures within real-world social and economic network systems. Specifically, we investigate how defection and cooperation behaviors in a networked Prisoner's Dilemma Game (PDG) influence cascading failure behavior, potentially leading to large-scale network collapse.",
@@ -63,12 +151,10 @@ export const projects = [
         team: ["Yuina Iseki", "Christina Vu", "Billy Cherres", "Declan Murray", "Kevin Fitzgerald"],
         timeline: "Fall 2023",
         course: "CSC 324: Software Development",
-        technologies: ["Network", "Game Theory", "Data Analysis"],
         keyFeatures: [
             "Network simulation with configurable topologies",
             "Prisoner's Dilemma Game implementation",
             "Cascading failure visualization",
-            "Statistical analysis of network resilience"
         ],
         image: "./imgs/networks.png",
         gif: "./gifs/networks.gif",
@@ -78,10 +164,9 @@ export const projects = [
         tags: ["NETWORKS", "GAME THEORY", "SIMULATION"]
     },
     {
-        id: 4,
         title: "Slime Alchemist",
         fullTitle: "Slime Alchemist",
-        category: "Game Dev",
+        categories: ["Game Dev"],
         type: "course project",
         shortDescription: "Educational 2D platformer teaching chemical reactions through adorable slime characters.",
         fullDescription: "\"The Slime Alchemist\" is an educational 2D platformer game for children and adults to learn about chemical reactions. Each chemical is a cute slime, and the player tries to meet with other chemical slimes to create chemical compounds and unlock levels. The BGM, UI, and sound effects aim to create a bubbly and fun experience for the player.",
@@ -89,13 +174,10 @@ export const projects = [
         team: ["Yuina Iseki", "Dasol Lee", "Rain Hartos", "Patrick Sales Garcia"],
         timeline: "Spring 2024",
         course: "DIS: Game Development",
-        technologies: ["Unity", "C#", "Adobe Illustrator", "Sound Design"],
         keyFeatures: [
             "Educational gameplay teaching chemistry concepts",
-            "12 unique chemical slime characters",
-            "Progressive difficulty with 15+ levels",
-            "Original soundtrack and sound effects",
-            "Charming hand-drawn art style"
+            "Unique chemical slime characters",
+            "Progressive difficulty with 3+ levels"
         ],
         image: "./imgs/slime-alchemist.png",
         gif: "./gifs/slime-alchemist.gif",
@@ -105,10 +187,9 @@ export const projects = [
         tags: ["GAME DEV", "EDUCATION", "UNITY"]
     },
     {
-        id: 5,
         title: "Scarlet's Shadow",
         fullTitle: "Scarlet's Shadow",
-        category: "Game Dev",
+        categories: ["Game Dev"],
         type: "course project",
         shortDescription: "Horror-aesthetic game exploring personal growth and moral decision-making.",
         fullDescription: "\"Scarlet's Shadow\" is a horror-aesthetic game themed on personal growth, decision-making, and moral good. The game is inspired by the fairytale \"The Little Red Riding Hood\", and like the original tale, the player's objective is to navigate the forest and safely get to grandma's house with some goods. The narrative focuses on overcoming the inner darkness held within the player.",
@@ -116,13 +197,8 @@ export const projects = [
         team: ["Yuina Iseki", "Dasol Lee", "Rain Hartos", "Patrick Sales Garcia"],
         timeline: "Spring 2024",
         course: "DIS: Game Development",
-        technologies: ["Unity", "C#", "Narrative Design", "Shader Programming"],
         keyFeatures: [
-            "Branching narrative with multiple endings",
-            "Atmospheric horror aesthetics",
-            "Psychological exploration mechanics",
-            "Environmental storytelling",
-            "Dynamic lighting and shadow effects"
+            "Branching narrative with multiple endings"
         ],
         image: "./imgs/red-ridinghood.png",
         gif: "./gifs/red-ridinghood.gif",
@@ -133,4 +209,5 @@ export const projects = [
     }
 ];
 
-export const categories = ["All", ...new Set(projects.map(p => p.category))];
+// Define categories manually in the order you want
+export const categories = ["All", "AI/ML", "Computer Vision", "HCI/UX", "Networks", "Game Dev"];
