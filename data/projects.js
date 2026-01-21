@@ -27,7 +27,7 @@ export const projects = [
     },
     */
    {
-        title: "GenAI Origami Models (WIP)",
+        title: "GenAI Origami Models",
         fullTitle: "Origami Model Generation with Neural Style Transfer (NST) and Cycle-Consistent Generative Adversarial Networks (CycleGAN)",
         categories: ["AI/ML", "Computer Vision"], 
         type: "course project",
@@ -49,7 +49,7 @@ export const projects = [
         tags: ["GENAI", "COMPUTER VISION", "DEEP LEARNING"]
     },
     {
-        title: "tether (WIP)",
+        title: "tetherg",
         fullTitle: "tether: A Safe Space for Difficult Conversations",
         categories: ["HCI/UX"], 
         type: "course project",
